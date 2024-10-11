@@ -7,16 +7,16 @@ The performance of mini-batch stochastic gradient descent (SGD) strongly depends
 
 # Usage
 
-To train a model on **CIFAR-100**, run the `cifar100.py` script with a specified JSON file that contains the training parameters:
+To train a model on **CIFAR-100**, run `cifar100.py` with a JSON file specifying the training parameters. Optionally, use the `--cuda_device` argument to choose a CUDA device. The default is device `0`:
 
 ```bash
-python cifar100.py XXXXX.json
+python cifar100.py XXXXX.json --cuda_device 1
 ```
 
 To resume training from a checkpoint, add the `--resume` option to the command. This will load the model state from the checkpoint specified in `checkpoint_path` within the JSON file and continue training from that point:
 
 ```bash
-python cifar100.py XXXXX.json --resume
+python cifar100.py XXXXX.json --resume --cuda_device 1
 ```
 
 For more details about configuring checkpoints, refer to the `checkpoint_path` section in the **Parameters Description**.
@@ -31,14 +31,14 @@ To train a model on **CIFAR10** or **Tiny ImageNet**, use the respective scripts
 
 For **CIFAR10**:
 ```bash
-python cifar10.py XXXXX.json
-python cifar10.py XXXXX.json --resume
+python cifar10.py XXXXX.json --cuda_device 1
+python cifar10.py XXXXX.json --resume --cuda_device 1
 ```
 
 For **Tiny ImageNet**:
 ```bash
-python tiny_imagenet.py XXXXX.json
-python tiny_imagenet.py XXXXX.json --resume
+python tiny_imagenet.py XXXXX.json --cuda_device 1
+python tiny_imagenet.py XXXXX.json --resume --cuda_device 1
 ```
 
 ## Example JSON Configuration
