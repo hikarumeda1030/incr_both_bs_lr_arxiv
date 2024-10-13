@@ -1,5 +1,5 @@
 {
-    "model": "ResNet18",
+    "model": "resnet18",
     "bs_method": "constant",
     "lr_method": "cosine",
     "init_bs": 128,

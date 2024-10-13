@@ -1,5 +1,5 @@
 {
-    "model": "ResNet18",
+    "model": "resnet18",
     "bs_method": "exp_growth",
     "lr_method": "warmup_cosine",
     "init_bs": 8,

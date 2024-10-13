@@ -84,6 +84,8 @@ if __name__ == '__main__':
 
     for epoch in range(start_epoch, epochs):
         batch_size = bs_scheduler.get_batch_size()
+        print(f'batch size: {batch_size}')
+        print(f'learning rate: {lr_scheduler.get_last_lr()[0]}')
         steps, lr_batch, norm_result, train_result = train(epoch, steps, model, device, trainset, optimizer,
                                                            lr_scheduler, lr_step_type, criterion, batch_size)
         lr_batches.extend(lr_batch)

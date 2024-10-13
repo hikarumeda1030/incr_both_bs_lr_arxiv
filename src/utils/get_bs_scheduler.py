@@ -19,7 +19,7 @@ def get_bs_lambda(config):
     bs_method = get_config_value(config, "bs_method")
 
     if bs_method == "constant":
-        return lambda epoch: 1.0
+        return lambda epoch: int(1.0)
 
     elif bs_method == "exp_growth":
         return lambda epoch: exp_growth_bs_lambda(

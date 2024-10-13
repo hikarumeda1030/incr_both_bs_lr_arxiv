@@ -1,5 +1,5 @@
 import torch
-import get_full_grad_list
+from .get_full_grad_list import get_full_grad_list
 
 
 def train(epoch, steps, model, device, trainset, optimizer, lr_scheduler, lr_step_type, criterion, batch_size):
