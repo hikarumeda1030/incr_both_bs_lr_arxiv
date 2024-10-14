@@ -45,7 +45,7 @@ python tiny_imagenet.py XXXXX.json --resume --cuda_device 1
 The following JSON configuration file is located at `src/json/incr_bs_warmup_lr/warmup_const_lr_max0.2.json`:
 ```
 {
-    "model": "ResNet18",
+    "model": "resnet18",
     "bs_method": "exp_growth",
     "lr_method": "warmup_const",
     "init_bs": 8,
@@ -63,7 +63,7 @@ The following JSON configuration file is located at `src/json/incr_bs_warmup_lr/
 ### Parameters Description
 | Parameter | Value | Description |
 | :-------- | :---- | :---------- |
-| `model` | `"ResNet18"`, `"WideResNet28_10"`, etc. | Specifies the model architecture to use. |
+| `model` | `"resnet18"`, `"WideResNet28_10"`, etc. | Specifies the model architecture to use. |
 | `bs_method` | `"constant"`, `"exp_growth"` | Method for adjusting the batch size. |
 |`lr_method`|`"constant"`, `"cosine"`, `"diminishing"`, `"linear"`, `"poly"`, <br>`"exp_growth"`,<br>`"warmup_const"`, `"warmup_cosine"`|Method for adjusting the learning rate.|
 |`init_bs`|`int` (e.g., `128`)| The initial batch size for the optimizer. |
