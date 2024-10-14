@@ -2,10 +2,10 @@ import torch
 import torch.nn as nn
 
 
-def get_full_grad_list(model, trainset, optimizer, batch_size):
+def get_full_grad_list(model, trainset, optimizer, batch_size, cuda):
     parameters = [p for p in model.parameters()]
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{cuda}" if torch.cuda.is_available() else "cpu")
     full_grad_list = []
     init = True
 

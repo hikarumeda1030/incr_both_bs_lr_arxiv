@@ -9,9 +9,9 @@ def exp_growth_bs_lambda(epoch, b_0, incr_interval, bs_growth_rate, epochs, b_ma
         exponent = (epochs - incr_interval) / incr_interval
         a = (b_max - b_0) / (bs_growth_rate ** exponent - 1)
         b = b_0 - a
-        return min(math.ceil((1 / b_0) * (a * (bs_growth_rate ** (epoch // incr_interval)) + b)), math.ceil(b_max / b_0))
+        return min((1 / b_0) * (a * (bs_growth_rate ** (epoch // incr_interval)) + b), b_max / b_0)
     else:
-        return int(bs_growth_rate ** (epoch // incr_interval))
+        return bs_growth_rate ** (epoch // incr_interval)
 
 
 def get_bs_lambda(config):
@@ -19,7 +19,7 @@ def get_bs_lambda(config):
     bs_method = get_config_value(config, "bs_method")
 
     if bs_method == "constant":
-        return lambda epoch: int(1.0)
+        return lambda epoch: 1
 
     elif bs_method == "exp_growth":
         return lambda epoch: exp_growth_bs_lambda(

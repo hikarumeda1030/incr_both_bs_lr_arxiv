@@ -2,7 +2,7 @@ import torch
 from .get_full_grad_list import get_full_grad_list
 
 
-def train(epoch, steps, model, device, trainset, optimizer, lr_scheduler, lr_step_type, criterion, batch_size):
+def train(epoch, steps, model, device, trainset, optimizer, lr_scheduler, lr_step_type, criterion, batch_size, cuda):
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
     model.train()
@@ -31,7 +31,7 @@ def train(epoch, steps, model, device, trainset, optimizer, lr_scheduler, lr_ste
         last_lr = lr_scheduler.get_last_lr()[0]
         lr_batch.append([epoch + 1, steps, last_lr, batch_size])
 
-    p_norm = get_full_grad_list(model, trainset, optimizer, batch_size)
+    p_norm = get_full_grad_list(model, trainset, optimizer, batch_size, cuda)
     norm_result = [epoch + 1, steps, p_norm]
 
     train_accuracy = 100. * correct / total

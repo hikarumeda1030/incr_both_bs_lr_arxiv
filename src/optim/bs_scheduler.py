@@ -1,3 +1,4 @@
+import math
 from typing import Optional, Callable
 
 
@@ -61,4 +62,4 @@ class LambdaBS(BSScheduler):
         super().__init__(initial_bs, last_epoch)
 
     def get_batch_size(self) -> int:
-        return self.initial_bs * self.bs_lambda(self.last_epoch)
+        return math.ceil(self.initial_bs * self.bs_lambda(self.last_epoch))
