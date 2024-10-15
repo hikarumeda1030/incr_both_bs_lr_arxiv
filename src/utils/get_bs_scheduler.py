@@ -37,7 +37,7 @@ def get_bs_lambda(config):
 def steps_per_epoch(config, trainset_length):
     """Calculates the number of steps per epoch based on the batch size method."""
     bs_lambda = get_bs_lambda(config)
-    return lambda epoch: math.ceil(trainset_length / (get_config_value(config, "init_bs") * bs_lambda(epoch)))
+    return lambda epoch: math.ceil(trainset_length / math.ceil(get_config_value(config, "init_bs") * bs_lambda(epoch)))
 
 
 def calculate_total_steps(config, trainset_length):
