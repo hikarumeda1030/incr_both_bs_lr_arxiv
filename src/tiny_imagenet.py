@@ -166,8 +166,8 @@ if __name__ == '__main__':
         batch_size = bs_scheduler.get_batch_size()
         print(f'batch size: {batch_size}')
         print(f'learning rate: {lr_scheduler.get_last_lr()[0]}')
-        steps, lr_batch, norm_result, train_result = train(epoch, steps, model, device, trainset, optimizer,
-                                                           lr_scheduler, lr_step_type, criterion, batch_size)
+        steps, lr_batch, norm_result, train_result = train(epoch, steps, model, device, trainset, optimizer, lr_scheduler,
+                                                           lr_step_type, criterion, batch_size, cuda=args.cuda_device)
         lr_batches.extend(lr_batch)
         norm_results.append(norm_result)
         train_results.append(train_result)
